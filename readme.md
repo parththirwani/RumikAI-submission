@@ -28,7 +28,7 @@ Outperforms DPR, ColBERT, and all intermediate hybrids
 |-------------------|--------|--------|--------------------------------------------|
 | No RAG            | 61.0%  | 66.8%  | Pure model knowledge                       |
 | Fixed RAG         | 68.0%  | 73.2%  | Always injects context → hurts some types |
-| **Smart Hybrid ** | **74.0%** | **79.1%** | +6% EM over Fixed RAG                     |
+| **Smart Hybrid** | **74.0%** | **79.1%** | +6% EM over Fixed RAG                     |
 
 **Strategy Breakdown:**
 - 86.0% → Full RAG (high confidence)
