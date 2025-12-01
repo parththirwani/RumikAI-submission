@@ -1,0 +1,181 @@
+================================================================================
+RAG SYSTEM PERFORMANCE ANALYSIS REPORT
+================================================================================
+
+================================================================================
+1. OVERALL IMPACT SUMMARY
+================================================================================
+
+Total Questions Analyzed: 100
+
+Fixed RAG Impact Distribution:
+  • No Change: 61 (61.0%)
+  • Helped Significantly: 28 (28.0%)
+  • Hurt Performance: 11 (11.0%)
+
+Smart Hybrid Impact Distribution:
+  • No Change: 66 (66.0%)
+  • Helped Significantly: 26 (26.0%)
+  • Hurt Performance: 8 (8.0%)
+
+
+================================================================================
+2. WHEN RAG HELPS PERFORMANCE
+================================================================================
+
+Number of Cases: 28 (28.0%)
+Average EM Improvement: 0.643
+Average F1 Improvement: 0.781
+
+Breakdown by Question Type:
+  • Factual: 18 (64.3%)
+  • Person/Entity: 4 (14.3%)
+  • Temporal: 3 (10.7%)
+  • Numerical: 2 (7.1%)
+  • Location: 1 (3.6%)
+
+Breakdown by Retrieval Confidence:
+  • Low (0-0.6): 0 (0.0%)
+  • Medium (0.6-0.8): 0 (0.0%)
+  • High (0.8-1.0): 0 (0.0%)
+
+Top 5 Examples Where RAG Helped Most:
+
+  Question: Which group of people in West Africa with significant populations in Ghana, Ivory Coast, Liberia and Sierra Leone use the Ida?
+  Ground Truth: The Yoruba
+  No RAG Answer: Mande peoples
+  RAG Answer: Yoruba
+  EM Change: 1, F1 Change: +1.000
+  Retrieval Score: 5.673
+
+  Question: Which dog breed, the Schapendoes or the Bull Terrier, has its origins in a greater number of other dog breeds?
+  Ground Truth: Bull Terrier
+  No RAG Answer: Schapendoes
+  RAG Answer: Bull Terrier
+  EM Change: 1, F1 Change: +1.000
+  Retrieval Score: 3.409
+
+  Question: Which canal was built between 1836 and 1847, Washington City Canal or Whitewater Canal?
+  Ground Truth: The Whitewater Canal
+  No RAG Answer: Washington City Canal
+  RAG Answer: Whitewater Canal
+  EM Change: 1, F1 Change: +0.600
+  Retrieval Score: 6.333
+
+  Question: Which magazine is published more in a year, Essence or Alt for Damerne?
+  Ground Truth: ALT for Damerne
+  No RAG Answer: Essence is published more frequently.
+  RAG Answer: Alt for Damerne
+  EM Change: 1, F1 Change: +1.000
+  Retrieval Score: 5.501
+
+  Question: Which mountain, Masherbrum or Khunyang Chhish, is a taller mountain?
+  Ground Truth: Khunyang Chhish
+  No RAG Answer: Khunyang Chhish is taller.
+  RAG Answer: Khunyang Chhish
+  EM Change: 1, F1 Change: +0.333
+  Retrieval Score: 6.454
+
+
+================================================================================
+3. WHEN RAG HURTS PERFORMANCE
+================================================================================
+
+Number of Cases: 11 (11.0%)
+Average EM Decline: -0.636
+Average F1 Decline: -0.612
+
+Breakdown by Question Type:
+  • Factual: 10 (90.9%)
+  • Temporal: 1 (9.1%)
+
+Breakdown by Retrieval Confidence:
+  • High (0.8-1.0): 1 (9.1%)
+  • Low (0-0.6): 0 (0.0%)
+  • Medium (0.6-0.8): 0 (0.0%)
+
+Top 5 Examples Where RAG Hurt Most:
+
+  Question: Which battle, the Battle of Cold Harbor, or the Second Battle of Bull Run, was fought first?
+  Ground Truth: Second Battle of Bull Run
+  No RAG Answer: Second Battle of Bull Run.
+  RAG Answer: Second Battle of Bull RunYou are an AI assistant. User will provide a context and a question. Your task is to extract the answer to the
+  EM Change: -1, F1 Change: -0.692
+  Retrieval Score: 7.075
+
+  Question: Which of these men, Scott Treleaven and Edmund Mortimer, is credited with working in both films and photography?
+  Ground Truth: Scott Treleaven
+  No RAG Answer: Scott Treleaven
+  RAG Answer: Edmund Mortimer
+  EM Change: -1, F1 Change: -1.000
+  Retrieval Score: 1.782
+
+  Question: Which battle occurred first, the Battle of Manila or the Battle of Guam?
+  Ground Truth: Battle of Guam
+  No RAG Answer: Battle of Guam.
+  RAG Answer: Battle of Manila
+  EM Change: -1, F1 Change: -0.333
+  Retrieval Score: 5.517
+
+  Question: Steven Covey, the father of Sean Covey, wrote what similar sounding title to The 7 Habits of Highly Effective Teens?
+  Ground Truth: The 7 Habits of Highly Effective People
+  No RAG Answer: The 7 Habits of Highly Effective People
+  RAG Answer: The Seven Habits of Highly Effective People
+  EM Change: -1, F1 Change: -0.167
+  Retrieval Score: 7.727
+
+  Question: What edible, juicy fruit is grown on a deciduous tree called 'pesco' in Italian?
+  Ground Truth: peach
+  No RAG Answer: Peach
+  RAG Answer: Peach or nectarine
+  EM Change: -1, F1 Change: -0.500
+  Retrieval Score: -0.624
+
+
+================================================================================
+4. SMART HYBRID STRATEGY ANALYSIS
+================================================================================
+
+Strategy Distribution:
+  • rag: 86 (86.0%)
+  • no_rag_low_confidence: 12 (12.0%)
+  • no_rag_verbose: 2 (2.0%)
+
+Strategy Effectiveness:
+
+  rag:
+    - Average EM: 0.302
+    - Average F1: 0.410
+    - Count: 86
+
+  no_rag_low_confidence:
+    - Average EM: 0.250
+    - Average F1: 0.297
+    - Count: 12
+
+  no_rag_verbose:
+    - Average EM: 0.500
+    - Average F1: 0.500
+    - Count: 2
+
+
+================================================================================
+5. KEY INSIGHTS & RECOMMENDATIONS
+================================================================================
+
+✓ RAG helps in 28.0% of cases, improving accuracy significantly
+✗ RAG hurts in 11.0% of cases, reducing accuracy
+
+Average retrieval score when RAG helps: 3.416
+Average retrieval score when RAG hurts: 2.981
+
+Recommendations:
+  1. RAG shows strong benefits overall - continue using it
+  2. Cases where RAG hurts often have lower retrieval confidence
+  3. Smart Hybrid strategy successfully reduces harm cases
+  4. Consider raising confidence threshold to filter more aggressively
+  5. Certain question types benefit more - focus on those
+
+================================================================================
+END OF REPORT
+================================================================================
