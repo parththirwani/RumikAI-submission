@@ -139,11 +139,11 @@ Smart Hybrid           X.X%   X.X%    X.X chars
 
 ## Key Features
 
-✅ **Multi-stage retrieval**: Dense + Sparse + Reranking  
-✅ **GPU optimization**: FP16, FAISS GPU, batch processing  
-✅ **Adaptive strategy**: Context-aware answer generation  
-✅ **Comprehensive evaluation**: 7 metrics across 5 configurations  
-✅ **Memory efficient**: 8-bit quantization for 7B model inference  
+**Multi-stage retrieval**: Dense + Sparse + Reranking  
+**GPU optimization**: FP16, FAISS GPU, batch processing  
+**Adaptive strategy**: Context-aware answer generation  
+**Comprehensive evaluation**: 7 metrics across 5 configurations  
+**Memory efficient**: 8-bit quantization for 7B model inference  
 
 ---
 
