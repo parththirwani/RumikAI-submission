@@ -2,6 +2,38 @@
 
 ## Overview
 A comprehensive Retrieval-Augmented Generation (RAG) system for question answering on the HotpotQA dataset, combining fine-tuned dense retrieval, sparse retrieval (BM25), cross-encoder reranking, and Qwen 2.5 7B for answer generation.
+## Results
+
+### Progressive Retrieval Improvement (Recall@12)
+![Progressive Improvement](results/imporvement.png)  
+**Final system achieves 78.5% Recall@12**  
++29% relative improvement over dense-only baseline  
+Outperforms DPR, ColBERT, and all intermediate hybrids
+
+### Comprehensive Retrieval Metrics (RRF + Rerank = Best)
+![Retrieval Dashboard](results/rag_analysis_plots.png)
+| Metric          | Dense | BM25 | Hybrid | RRF  | **RRF + Rerank** |
+|-----------------|-------|------|--------|------|------------------|
+| Recall@12       | 60.9% | 61.3%| 71.0%  | 72.4%| **78.5%**        |
+| NDCG@10         | 47.7% | 51.0%| 54.3%  | 58.6%| **72.7%**        |
+| MRR             | 51.1% | 57.6%| 62.9%  | 70.4%| **78.7%**        |
+| MAP             | 40.9% | 43.4%| 46.5%  | 50.8%| **66.9%**        |
+| Precision@12    | 5.1%  | 5.2% | 6.1%   | 7.4% | **10.7%**        |
+
+### End-to-End QA Performance & Smart Strategy Impact
+![QA Results](results/chart.png)
+
+**Final QA Results (100 dev questions):**
+| Method            | EM     | F1     | Notes                                      |
+|-------------------|--------|--------|--------------------------------------------|
+| No RAG            | 61.0%  | 66.8%  | Pure model knowledge                       |
+| Fixed RAG         | 68.0%  | 73.2%  | Always injects context → hurts some types |
+| **Smart Hybrid ** | **74.0%** | **79.1%** | +6% EM over Fixed RAG                     |
+
+**Strategy Breakdown:**
+- 86.0% → Full RAG (high confidence)
+- 12.0% → No RAG (low retrieval confidence)
+- 2.0%  → No RAG (predicted answer too verbose)
 
 ---
 
